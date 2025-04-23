@@ -29,22 +29,28 @@ services:
           memory: 512M
 
   frontend:
-    build: ./frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: react_frontend
     volumes:
       - ./frontend:/app
       - /app/node_modules
     ports:
-      - "3000:3000"
+      - "4000:4000"
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
       - WDS_SOCKET_PORT=0
       - REACT_APP_API_URL=http://localhost:8000
+      - WATCHPACK_POLLING=true
+      - PORT=4000
+      - HOST=0.0.0.0
     networks:
       - app-network
     stdin_open: true
     tty: true
+    restart: always
 
   db:
     image: mysql:8.0

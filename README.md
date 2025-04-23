@@ -29,7 +29,7 @@ docker-compose up
 ```
 
 3. ブラウザでアクセスする
-   - フロントエンド: http://localhost:3000
+   - フロントエンド: http://localhost:4000
    - バックエンド API: http://localhost:8000
    - 管理画面: http://localhost:8000/admin
 
