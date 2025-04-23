@@ -20,7 +20,6 @@ var/
 .installed.cfg
 *.egg
 venv/
-.env
 
 # Django
 *.log
