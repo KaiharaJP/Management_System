@@ -33,10 +33,18 @@ services:
     container_name: react_frontend
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     ports:
       - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+      - REACT_APP_API_URL=http://localhost:8000
     networks:
       - app-network
+    stdin_open: true
+    tty: true
 
   db:
     image: mysql:8.0
